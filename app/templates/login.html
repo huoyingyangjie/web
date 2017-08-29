@@ -1,0 +1,106 @@
+{% extends "login_tmp.html" %}
+{% block context %}
+    <div class="container " style="">
+        <div class="row" style="width: 100%">
+            <div  class="col-md-offset-4 col-md-4 intro-message" style="">
+                <div>
+                   <div style="float: left"><li class="fa fa-flash fa-fw fa-5x" style="color:#fbcb09"></li> </div><div style="float: left;font-size: 40px">Xele Monitor</div><div  style="float: left"><li class="fa fa-registered fa-fw"></li></div>
+                </div>
+
+            </div>
+                <div style="" >
+                <div style="margin-left: 150px;margin-top: 25px;width: 200px;height: 30px;float: left" >
+                    <div style="float: left">
+                <img style="width: 25px;height: 25px;"   src="/static/img/chinese-flag-small.png">
+
+
+                    </div>
+                    <a href="/login?localization=zh" style="float: left">中国</a>
+                    <div style="float: left;">
+                        <img style="width: 25px;height: 25px" src="/static/img/american-flag-small.png">
+                            </div>
+                    <a href="/login?localization=en">English</a>
+                </div>
+
+
+                    </div>
+                </div>
+        </div>
+
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Welcom to use</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" method="POST" action="">
+                            {% with messages=get_flashed_messages() %}
+                            {% if messages %}
+                            <ul>
+                                {% for message in messages %}
+                                    <li>{{ message }}</li>
+
+                            {% endfor %}
+                            </ul>
+                                <hr/>
+                            {% endif %}
+                        {% endwith %}
+
+                            <fieldset>
+                            <div class="form-group">
+                                 {{ form.csrf_token }}
+                            </div>
+
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Username" name="username" type="text" autofocus>
+                                     {% for error in form.username.errors %}
+                                        <span style="color: red;">[{{error}}]</span>
+                                     {% endfor %}<br>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    {% for error in form.password.errors %}
+                                        <span style="color: red;">[{{error}}]</span>
+                                    {% endfor %}<br>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember_me" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+
+
+
+
+                                <!-- Change this to a button or input when using this as a form -->
+                                <input type="submit" class="btn btn-lg btn-success btn-block" value="Login">
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock context %}
+
+
+{% block footer %}
+
+
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="navbar-inner navbar-content-center">
+        <p class="text-muted credit" style="padding: 10px;">
+            Copyright © 2016 南京艾科朗克信息科技有限公司 Inc. All Rights Reserved.
+        </p>
+    </div>
+    </nav>
+
+
+{% endblock footer %}
+

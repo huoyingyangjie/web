@@ -1,0 +1,14 @@
+报单编号 order_number
+合约 contract
+买卖 buy_sell
+开平 open_close
+挂单状态 order_status
+报单价格 entry_price
+报单手数 order_lots
+未成交手数 unclosed_lots
+成交手数  closed_lots
+详细状态 detailed_state
+报单时间 entry_time
+最后成交时间 closed_time
+成交均价 average_price
+投保  speculate_preservate

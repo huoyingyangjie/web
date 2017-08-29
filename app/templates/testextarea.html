@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Dialog - Default functionality</title>
+
+
+    <!--link href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.css" rel="stylesheet"/-->
+
+    <link href="static/vendor/jqueryui/jquery-ui.css" rel="stylesheet"/>
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+     <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/jqueryMigrate/jquery-migrate.js"></script>
+    <script src="static/vendor/jqueryui/jquery-ui.js"></script>
+<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+<div class="container">
+  <div class="form-group">
+    <label>Languages</label>
+    <input class="btn btn-default  autocomplete" placeholder="Enter A" /><span>abc</span>
+  </div>
+
+  <div class="form-group">
+    <label >Another Field</label>
+    <input class="form-control">
+  </div>
+</div>
+<script>
+    $(function() {
+  var availableTags = [
+    "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++",
+    "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran",
+    "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl",
+    "PHP", "Python", "Ruby", "Scala", "Scheme"
+  ];
+
+  $(".autocomplete").autocomplete({
+    source: availableTags
+  });
+});
+</script>
+</body>
+</html>

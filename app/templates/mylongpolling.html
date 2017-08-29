@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RealTime</title>
+<script type="text/javascript" src="static/vendor/jquery/jquery.js"></script>
+<script type="text/javascript" src="static/vendor/encryption/sha1.js" ></script>
+</head>
+<body>
+<h1 >Realtime show data from server</h1>
+<p id="mysha1">Click me to generate sha1</p>
+<form>
+
+    <input id="password" name="password"  type="password" placeholder="password" >
+    <button  id="submit"  type="submit">登录</button>
+
+</form>
+<script type="text/javascript">
+    function showSha1() {
+        var sha = hex_sha1('mima123465')
+    alert(sha)
+    }
+$("#mysha1").click(showSha1);
+$("#submit").click(
+        function () {
+            $("#password").val(hex_sha1($("#password").val()))
+        }
+
+);
+</script>
+</body>
+</html>

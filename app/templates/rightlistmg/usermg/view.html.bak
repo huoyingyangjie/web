@@ -1,0 +1,218 @@
+{% extends "home-template.html" %}
+{%block tabView%}
+{{ super() }}
+<div class="container" style="margin-left:0px;width:100%">
+<div class="row">
+
+
+    <h1 class="page-header"><span class="fa fa-user fa-fw" aria-hidden="true"></span> <label>User
+        Management</label><label style="margin-left:10px;margin-right:10px;">/</label><a href="/usermg/view.html">View</a></h1>
+
+
+    <div class="col-lg-8 " style="">
+
+
+        <div>
+
+            <label class="col-xs-10" style="color:black;font-size: 20px">Current UserDetail <i class="fa fa-list fa-fw"
+                                                                                        aria-hidden="true"></i></label>
+            <button class=" btn btn-default" style="border:0px;margin:2px"><i class="fa fa-pencil-square-o fa-fw"
+                                                                              aria-hidden="true"></i>Edit
+            </button>
+        </div>
+
+        <form class="form-horizontal" role="form">
+
+            <div class="form-group">
+                <label class="col-xs-2 control-label">ID</label>
+                <div class="col-xs-10">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Name</label>
+                <div class="col-xs-10">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Role</label>
+                <div class="col-xs-10">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-xs-2 control-label">CreateTime</label>
+                <div class="col-xs-10">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Remarks</label>
+                <div class="col-xs-10">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-2 control-label">LastLoginTime</label>
+                <div class="col-xs-10">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">LastLogoutTime</label>
+                <div class="col-xs-10">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+
+            <div>
+                <button class="btn btn-primary" style="margin-left:30%;margin-top:20%" type="submit"><i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>Save</button>
+                <button class="btn btn-default" style="margin-left:20px;margin-top:20%" ><i class="fa fa-undo fa-fw" aria-hidden="true"></i>Return</button>
+            </div>
+
+
+        </form>
+
+    </div>
+    <div class="col-lg-4 pre-scrollable" style="min-height:80vh;border-left:2px solid ;border-left-style:inset">
+         add search!!! add column !!!  show detail when click row !!! not redirect
+        <div class="panel panel-default">
+              <div class="panel-heading">
+                    <h3 class="panel-title">
+
+                        <i class="fa fa-list "  style=""></i>所有users
+                    </h3>
+                </div>
+            <div class="panel-body">
+        <div class="table-responsive ">
+            <table name="users" class="table table-hover ">
+
+                <thead>
+                <tr class="clickable-row ">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Role</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="clickable-row">
+                    <td>Tanmay</td>
+                    <td>Bangalore</td>
+                    <td>560001</td>
+                </tr>
+                <tr class="clickable-row">
+                    <td>Sachin</td>
+                    <td>Mumbai</td>
+                    <td>400003</td>
+                </tr>
+                <tr class="clickable-row">
+                    <td>Uma</td>
+                    <td>Pune</td>
+                    <td>411027</td>
+                </tr>
+                 <tr class="clickable-row">
+                    <td>Tanmay</td>
+                    <td>Bangalore</td>
+                    <td>560001</td>
+                </tr>
+
+                 <tr class="clickable-row">
+                    <td>Tanmay</td>
+                    <td>Bangalore</td>
+                    <td>560001</td>
+                </tr>
+
+                <tr class="clickable-row">
+                    <td>Uma</td>
+                    <td>Pune</td>
+                    <td>411027</td>
+                </tr>
+                 <tr class="clickable-row">
+                    <td>Tanmay</td>
+                    <td>Bangalore</td>
+                    <td>560001</td>
+                </tr>
+                <tr class="clickable-row">
+                    <td>Sachin</td>
+                    <td>Mumbai</td>
+                    <td>400003</td>
+                </tr>
+                <tr class="clickable-row">
+                    <td>Uma</td>
+                    <td>Pune</td>
+                    <td>411027</td>
+                </tr>
+                 <tr class="clickable-row">
+                    <td>Tanmay</td>
+                    <td>Bangalore</td>
+                    <td>560001</td>
+                </tr>
+                <tr class="clickable-row">
+                    <td>Sachin</td>
+                    <td>Mumbai</td>
+                    <td>400003</td>
+                </tr>
+                <tr class="clickable-row">
+                    <td>Uma</td>
+                    <td>Pune</td>
+                    <td>411027</td>
+                </tr>
+                 <tr class="clickable-row">
+                    <td>Tanmay</td>
+                    <td>Bangalore</td>
+                    <td>560001</td>
+                </tr>
+                <tr class="clickable-row">
+                    <td>Sachin</td>
+                    <td>Mumbai</td>
+                    <td>400003</td>
+                </tr>
+                <tr class="clickable-row">
+                    <td>Uma</td>
+                    <td>Pune</td>
+                    <td>411027</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{%endblock%}
+ {%block bodyjs_after%}
+    {{ super() }}
+
+<script>
+
+
+
+    $(document).ready(function(){
+
+    $(document).on("click",("table[name='users'] tbody tr"),function () {
+
+        $("table[name='users'] tbody tr").removeClass("success");
+           $(this).addClass("success");
+    });
+
+
+    /*
+    $("table[name='users'] tbody tr").on('click', function () {
+
+        $("table[name='users'] tbody tr").removeClass("success");
+           $(this).addClass("success");
+    });
+    */
+});
+</script>
+  {%endblock%}

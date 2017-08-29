@@ -1,0 +1,86 @@
+{% extends "home-template.html" %}
+{%block tabView%}
+{{ super() }}
+
+<div class="row">
+
+
+    <h1 class="page-header"><span class="fa fa-user fa-fw" aria-hidden="true"></span> <label >User Management</label><label style="margin-left:10px;margin-right:10px;">/</label><label>Create</label></h1>
+
+
+    <div class="col-lg-8 " style="">
+
+
+        <div>
+
+            <label class="col-xs-10" style="color:black;font-size: 20px">  UserDetail <i class="fa fa-list fa-fw" aria-hidden="true"></i></label>
+             <button class=" btn btn-primary" >Edit</button>
+            </div>
+
+        <form class="form-horizontal" role="form">
+
+            <div class="form-group">
+                <label class="col-xs-2 control-label">ID</label>
+                <div class="col-xs-10">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Name</label>
+                <div class="col-xs-10">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Role</label>
+                <div class="col-xs-10">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label class="col-xs-2 control-label">CreateTime</label>
+                <div class="col-xs-10">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Remarks</label>
+                <div class="col-xs-10">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+
+             <div class="form-group">
+                <label class="col-xs-2 control-label">LastLoginTime</label>
+                <div class="col-xs-10">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">LastLogoutTime</label>
+                <div class="col-xs-10">
+                    <p class="form-control-static">email@example.com</p>
+                </div>
+            </div>
+
+            <div>
+            <button class="btn btn-default" type="submit">Button</button>
+            </div>
+
+
+        </form>
+
+    </div>
+    <div class="col-lg-4 " style="height:100%;border-left:1px solid #f00;height:100%">
+        show user detail
+    </div>
+</div>
+{%endblock%}

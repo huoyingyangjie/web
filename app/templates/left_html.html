@@ -1,0 +1,27 @@
+<div class="sidebar" style="max-height: 90vh;overflow:auto;min-width: 200px">
+<div class="sidebar-nav navbar-collapse">
+<ul class="nav" id="side-menu" style="">
+    {% if leftlistmg_dashboard %}
+        {{ leftlistmg_dashboard|safe }}
+    {% endif %}
+    {% if leftlistmg_usermg %}
+        {{ leftlistmg_usermg|safe }}
+    {% endif %}
+
+
+    {% if leftlistmg_rolemg %}
+        {{ leftlistmg_rolemg |safe }}
+
+    {% endif %}
+
+
+    {% if leftlistmg_prcmg %}
+     {{ leftlistmg_prcmg |safe }}
+    {% endif %}
+
+    {% if leftlistmg_trading %}
+        {{ leftlistmg_trading|safe }}
+    {% endif %}
+</ul>
+</div>
+</div>

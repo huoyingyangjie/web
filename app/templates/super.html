@@ -1,0 +1,75 @@
+<!DOCTYPE html style="height:100%;">
+<head>
+
+    {% for  css_url in css_urls%}
+        <link href="{{ css_url |safe}}" rel="stylesheet" />
+    {% endfor %}
+
+
+</head>
+
+<body style="height: 100%;width: 100%">
+
+
+<table style="height: 100%;table-layout: auto">
+    <tbody>
+    <tr style="height: 10vh;">
+        <td style="background: grey;" colspan="2" >
+    <div class=" " name="menu" layout="top" style="margin: 0px;padding: 0px;height: 100%;">
+
+    {% if top_html %}
+        {{ top_html|safe }}
+    {% endif %}
+
+    </div>
+        </td>
+
+    </tr>
+    <tr style="height: 90vh;">
+        <td style="background: grey;" valign="top">
+            <div class="" name="nav" layout="left" style="">
+
+    {% if left_html %}
+        {{ left_html|safe}}
+    {% endif %}
+
+
+</div>
+        </td>
+        <td valign="top" style="width: 100%">
+            <div class=""  name="document" layout="right" style="height: 100%;width:100%">
+    {% if right_html %}
+    {{ right_html | safe}}
+    {% endif %}
+</div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+<!--js file-->
+{% for js_url in js_urls %}
+    <script type="text/JavaScript" src="{{ js_url |safe }}"></script>
+{% endfor %}
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+          $(window).bind("resize",function () {
+
+          });
+        })
+    </script>
+
+
+</body>
+
+
+
+</html>

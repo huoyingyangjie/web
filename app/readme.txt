@@ -1,0 +1,1 @@
+1.if we need the same result with Xmonitor ,we can close responsive in bootstrap.now we have good performance in 1280px!!!
