@@ -1,0 +1,15 @@
+<li>
+    <a>rolemg</a>
+    {% if rolemg_view or rolemg_create %}
+        <ul class="nav nav-second-level">
+        {% if rolemg_view %}
+        <li>{{ rolemg_view |safe }}</li>
+        {% endif %}
+
+        {% if rolemg_create %}
+            <li>{{ rolemg_create|safe }}</li>
+            {% endif %}
+        </ul>
+
+    {% endif %}
+</li>

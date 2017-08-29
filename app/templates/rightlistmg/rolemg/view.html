@@ -1,0 +1,51 @@
+<div name="title">
+
+</div>
+<div name="body">
+
+<div name="operation">
+{% if add %}
+    {{ add |safe }}
+{% endif %}
+{% if delete %}
+    {{ delete |safe }}
+{% endif %}
+{% if modify %}
+    {{ modify |safe }}
+{% endif %}
+</div>
+    <div name="display">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    roleID
+                </th>
+                <th>
+                    roleName
+                </th>
+                <th>
+                    permission_combination
+                </th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for role in roles %}
+                <tr>
+                <td>
+                    role.id
+                </td>
+                <td>
+                    role.rolename
+                </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
+

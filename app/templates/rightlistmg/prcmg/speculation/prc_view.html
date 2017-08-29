@@ -1,0 +1,1082 @@
+{% extends "home-template.html" %}
+
+{% block headjs %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/vendor/bootstrap-switch/bootstrapSwitch.css">
+{% endblock %}
+{% block bodyjs_before %}
+    {{ super() }}
+
+    <script src="/static/vendor/bootstrap-switch/bootstrapSwitch.js"></script>
+{% endblock %}
+
+
+{% block tabView %}
+    {{ super() }}
+
+    <div class="row">
+        <h3 class="page-header"><span class="fa fa-user fa-fw" aria-hidden="true"></span> <label>Prc
+            Management</label><label
+                style="margin-left:10px;margin-right:10px;">/</label><label>Speculation</label><label
+                style="margin-left:10px;margin-right:10px;">/</label><a href="/prcmg/speculation/view.html">View</a>
+        </h3>
+
+    </div>
+    <div id="hidden_item" style="display: none">
+
+        <p name="request_username">
+
+                {{  args.get("username") if  args.get("username")!=None }}
+
+        </p>
+
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="border-right:0px solid #f00;min-width: 1100px;padding-left: 0px">
+        <form id="prc_form" role="form" method="post">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div style="display: inline-block">
+                <h3 class="panel-title ">
+                <label class="control-label" >Username: </label><p class="form-control-static" style="display: inline">email@example.com</p>
+
+                </h3>
+                    </div>
+                <div style="display: inline;float: right">
+                   <button class=" btn btn-primary btn-xs"  type="button" btnfunc="edit"><i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>Edit</button>
+
+                </div>
+
+            </div>
+
+            <div class="panel-body" style="padding: 0px">
+            <p>------------------------investor prc----------------------</p>
+                <div id="investor_prc" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border-bottom:0px dashed black;padding: 0px;">
+
+
+
+                </div>
+                 <p>------------------------investor prc----------------------</p>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
+                    <div >
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                         <div id="contract_inputs" style="display: none">
+
+                        </div>
+                    <label class="control-label">Contract:</label><span placename="Contract" class="control-label"></span>
+                        </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
+                        <table>
+                            <tr class="chover">
+                                <td style="padding-right: 20px">
+                                   <label>CancelTimesLimit</label>
+                                </td>
+                                <td><input placename="CancelTimesLimit" colindex="1" type="text" class="form-control contract-prc-input" placeholder="CancelTimesLimit"></td>
+                            </tr>
+                            <tr class="chover">
+                                <td style="padding-right: 20px">
+                                 <label> OpenOrderLimit</label>
+                                </td>
+                                <td>
+                                    <p placename="OpenOrderLimit" colindex="2"   class=" contract-prc-input" placeholder="OpenOrderLimit">
+                                </p>
+                                </td>
+                            </tr>
+                            <tr class="chover">
+                                <td style="padding-right: 20px">
+                                   <label> LotSize</label>
+                                </td>
+                                <td><input placename="LotSize" colindex="3"  type="text" class="form-control contract-prc-input" placeholder="LotSize"></td>
+                            </tr>
+                        </table>
+
+
+
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                        <table>
+                            <tr class="chover">
+                                <td style="padding-right: 20px">
+                                   <label>BuyPositionLimit</label>
+                                </td>
+                                <td><input placename="BuyPositionLimit" colindex="4"  type="text" class="form-control contract-prc-input" placeholder="BuyPositionLimit"></td>
+                            </tr>
+                            <tr class="chover">
+                                <td style="padding-right: 20px">
+                                 <label> SellPositionLimit</label>
+                                </td>
+                                <td><input placename="SellPositionLimit" colindex="5"  type="text" class="form-control contract-prc-input" placeholder="SellPositionLimit"></td>
+                            </tr>
+                            <tr class="chover">
+                                <td style="padding-right: 20px">
+                                   <label> MinPriceRangeLimit</label>
+                                </td>
+                                <td><input placename="MinPriceRangeLimit" colindex="6"  type="text" class="form-control contract-prc-input" placeholder="MinPriceRangeLimit"></td>
+                            </tr>
+                        </table>
+
+
+
+                    </div>
+
+                        </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 0px">
+                        <div class="table-responsive " >
+            <table name="contract_prc" class="xele_table table table_fixed_prc table-striped table-hover " style="width: 100%;outline:none;" tabindex=0>
+
+                <thead class="" style="border-top: 1px  solid #ddd">
+                <tr class=" clickable-row" style="font-size: 10px;color: black">
+                    <th class="table-bordered" style="text-align: center" >Contract</th>
+                    <th class=" table-bordered">CancelTimesLimit</th>
+                    <th class="table-bordered">OpenOrderLimit</th>
+                    <th class=" table-bordered" style="text-align: center">LotSize</th>
+                    <th class=" table-bordered">BuyPositionLimit</th>
+                    <th class=" table-bordered">SellPositionLimit</th>
+                    <th class="" style="">MinPriceRangeLimit</th>
+                </tr>
+                </thead>
+                <tbody class="" style="height: 300px">
+
+                <tr class=" chover clickable-row ">
+                    <td align="center"  rawValue="Uma" >Uma</td>
+                    <td  align="center" rawValue="Pune" >Pune</td>
+                    <td  align="center" rawValue="411027">411027</td>
+                    <td  align="center" rawValue="411027" >411027</td>
+                    <td align="center"  rawValue="411027" >411027</td>
+                    <td  align="center" rawValue="411027" >411027</td>
+                    <td  align="center" rawValue="u"  >u</td>
+
+                </tr>
+                <tr class=" chover clickable-row ">
+                    <td align="center"  rawValue="Uma" >Uma</td>
+                    <td  align="center" rawValue="Pune" >Pune</td>
+                    <td  align="center" rawValue="411027">411027</td>
+                    <td  align="center" rawValue="411027" >411027</td>
+                    <td align="center"  rawValue="411027" >411027</td>
+                    <td  align="center" rawValue="411027" >411027</td>
+                    <td  align="center" rawValue="u"  >u</td>
+
+                </tr>
+                <tr class=" chover clickable-row ">
+                    <td align="center"  rawValue="Uma" >Uma</td>
+                    <td  align="center" rawValue="Pune" >Pune</td>
+                    <td  align="center" rawValue="411027">411027</td>
+                    <td  align="center" rawValue="411027" >411027</td>
+                    <td align="center"  rawValue="411027" >411027</td>
+                    <td  align="center" rawValue="411027" >411027</td>
+                    <td  align="center" rawValue="u"  >u</td>
+
+                </tr>
+                <tr class=" chover clickable-row ">
+                    <td align="center"  rawValue="Uma" >Uma</td>
+                    <td  align="center" rawValue="Pune" >Pune</td>
+                    <td  align="center" rawValue="411027">411027</td>
+                    <td  align="center" rawValue="411027" >411027</td>
+                    <td align="center"  rawValue="411027" >411027</td>
+                    <td  align="center" rawValue="411027" >411027</td>
+                    <td  align="center" rawValue="u"  >u</td>
+
+                </tr>
+
+
+
+
+
+
+                </tbody>
+            </table>
+            </div>
+                    </div>
+
+                </div>
+                <!--form-- class="form-horizontal" role="form">
+                    <div class="col-lg-6 col-md-6 col-sm-6" >
+                    <div class=" form-group chover">
+
+                        <div class="container">
+                            <div class=" row ">
+
+
+                                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 " >
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">1</i>
+                                    </button>
+                                    <label class=" control-label "
+                                           style="display: inline">CancelOrderLimitEnable</label></div>
+                                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12" style="">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="form-group chover" >
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 " >
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">2</i>
+                                    </button>
+                                    <label class=" control-label ">MarginOccupyCheckEnable</label>
+
+
+                                </div>
+
+                                <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 ">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group chover">
+                        <div class="container" style="">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">3</i>
+                                    </button>
+                                    <label class=" control-label ">MarginPercentValue</label>
+
+
+                                </div>
+
+                                <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 " >
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group chover">
+
+                        <div class="container">
+                            <div class=" row ">
+
+
+                                <div class="col-sm-3 col-xs-12">
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">4</i>
+                                    </button>
+                                    <label class=" control-label "
+                                           style="display: inline">PositionCheckEnable</label></div>
+                                <div class="col-sm-1 col-xs-12" style="">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="form-group chover">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">5</i>
+                                    </button>
+                                    <label class=" control-label ">RejectAllSell</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group chover">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">6</i>
+                                    </button>
+                                    <label class=" control-label ">RejectAllBuy</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group chover">
+
+                        <div class="container">
+                            <div class=" row ">
+
+
+                                <div class="col-sm-3 col-xs-12">
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">7</i>
+                                    </button>
+                                    <label class=" control-label "
+                                           style="display: inline">PriceTickCheckEnable</label></div>
+                                <div class="col-sm-1 col-xs-12" style="">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="form-group chover">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">8</i>
+                                    </button>
+                                    <label class=" control-label ">PriceRangeCheckEnable</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group chover">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">9</i>
+                                    </button>
+                                    <label class=" control-label ">RejectInvalidTickSizeEnable</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group chover">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">10</i>
+                                    </button>
+                                    <label class=" control-label ">RejectInvalidLotSizeEnable</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+ <div class="form-group chover">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">11</i>
+                                    </button>
+                                    <label class=" control-label ">QSThrottleEnable</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+ <div class="form-group chover">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">12</i>
+                                    </button>
+                                    <label class=" control-label ">QSThrottleInterval</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+</div>
+                    <div class="col-lg-6 col-md-6 col-sm-6" >
+                    <div class=" form-group chover">
+
+                        <div class="container">
+                            <div class=" row ">
+
+
+                                <div class="col-sm-3 col-xs-12">
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">13</i>
+                                    </button>
+                                    <label class=" control-label "
+                                           style="display: inline">QSOrdersPerInterval</label></div>
+                                <div class="col-sm-1 col-xs-12" style="">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="form-group chover" >
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">14</i>
+                                    </button>
+                                    <label class=" control-label ">TotalThrottleEnable</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group chover">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">15</i>
+                                    </button>
+                                    <label class=" control-label ">TotalThrottleInterval</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group chover">
+
+                        <div class="container">
+                            <div class=" row ">
+
+
+                                <div class="col-sm-3 col-xs-12">
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">16</i>
+                                    </button>
+                                    <label class=" control-label "
+                                           style="display: inline">TotalOrdersPerInterval</label></div>
+                                <div class="col-sm-1 col-xs-12" style="">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="form-group chover">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">17</i>
+                                    </button>
+                                    <label class=" control-label ">PriceCheckEnable</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group chover">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">18</i>
+                                    </button>
+                                    <label class=" control-label ">allowMktOrders</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group chover">
+
+                        <div class="container">
+                            <div class=" row ">
+
+
+                                <div class="col-sm-3 col-xs-12">
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">19</i>
+                                    </button>
+                                    <label class=" control-label "
+                                           style="display: inline">RestrictTrading</label></div>
+                                <div class="col-sm-1 col-xs-12" style="">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="form-group chover">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">20</i>
+                                    </button>
+                                    <label class=" control-label ">MaxQtyEnable</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group chover">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">9</i>
+                                    </button>
+                                    <label class=" control-label ">RejectInvalidTickSizeEnable</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group chover">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">10</i>
+                                    </button>
+                                    <label class=" control-label ">RejectInvalidLotSizeEnable</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+ <div class="form-group chover">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">11</i>
+                                    </button>
+                                    <label class=" control-label ">QSThrottleEnable</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+ <div class="form-group chover">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12 ">
+
+                                    <button type="button" class="btn btn-default btn-circle"><i
+                                            class="glyphicon">12</i>
+                                    </button>
+                                    <label class=" control-label ">QSThrottleInterval</label>
+
+
+                                </div>
+
+                                <div class="col-sm-1 col-xs-12">
+                                    <div class="switch switch-small" data-on="primary" data-off="info" data-animated="false">
+                                        <input type="checkbox" checked/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+</div>
+
+
+
+
+                </form-->
+
+            </div>
+        </div>
+</form>
+
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="width: 300px">
+    <table name="userlist" class="table table-hover">
+        <thead>
+        <tr>
+            <th>
+                username
+            </th>
+            <th>
+                create_time
+            </th>
+            <th>
+                modified_time
+            </th>
+             <th>
+                username
+            </th>
+            <th>
+                create_time
+            </th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in args.userlist %}
+            <tr>
+            <td>
+                {{ user.username }}
+            </td>
+            <td>
+                {{ user.create_time }}
+            </td>
+            <td>
+                {{ user.modified_time }}
+            </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+{% endblock %}
+
+{% block bodyjs_after %}
+{{ super() }}
+
+    <script>
+    $(function() {
+
+        function fill_left_page(data) {
+            $('div#investor_prc').empty();
+            //alert(data);
+            var checkbox= "<div class=\"switch switch-small\" data-on=\"primary\" data-off=\"info\" data-animated=\"false\">"+
+                    "<input type=\"hidden\" name=\"{0}\" value=\"off\">"+
+                                "<input name=\"{0}\" type=\"checkbox\" {1}/>"+
+                          "</div>";
+            var input=" <input name=\"{0}\" style=\"width: 80px\" type=\"text\" class=\"form-control\" placeholder=\"{0}\" value=\"{1}\">";
+
+            var html_str="<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-4 chover\" style=\"padding: 0px;\">"+
+"                            <div class=\"col-lg-1 col-md-1 col-sm-1 col-xs-1\" style=\"text-align: left;padding: 0px;\">"+
+"                                    <i class=\"glyphicon \" style=\"font-size: 15px;\">{0}.</i>"+
+"                            </div>"+
+"                            <div class=\"col-lg-8 col-md-8 col-sm-8 col-xs-8\" style=\"text-align: left;padding: 0px;\">"+
+"                                <label class=\" control-label \" style=\"\">{1}</label>"+
+"                            </div>"+
+"                            <div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3\" style=\"text-align: left;padding: 0px;\" >"+
+"                                   {2}"+
+"                            </div>"+
+                         "</div>";
+
+
+            for (index in data.investor_prc)
+            {
+                var investor_prc_iter=data.investor_prc[index];
+
+                var target_html;
+                if(investor_prc_iter.type=="checkbox")
+                {
+                     if(investor_prc_iter.value=="off")
+                            target_html=checkbox.format(investor_prc_iter.name,"");
+                         else
+                    {
+                        if( investor_prc_iter.value=="on")
+                            target_html=checkbox.format(investor_prc_iter.name,"checked")
+                    }
+
+                }
+                else if(investor_prc_iter.type=="input")
+                {
+                    target_html=input.format(investor_prc_iter.name,investor_prc_iter.value);
+                }
+                else
+                {
+                    break;
+                }
+
+
+
+
+
+                $('div#investor_prc').append(html_str.format(parseInt(index)+1,investor_prc_iter.name,target_html));
+                if(investor_prc_iter.edit==false)
+                 $('div#investor_prc input:last')
+
+
+            }
+
+            $('div#investor_prc div.switch').bootstrapSwitch();
+
+
+        }
+
+        $(document).on("click",("table[name='contract_prc'] tbody tr"),function () {
+
+        $("table[name='contract_prc'] tbody tr").removeClass("success");
+        $(this).addClass("success");
+        var td_Contract=$($("td",this)[0]);
+        var td_CancelTimesLimit=$($("td",this)[1]);
+        var td_OpenOrderLimit=$($("td",this)[2]);
+        var td_LotSize=$($("td",this)[3]);
+        var td_BuyPositionLimit=$($("td",this)[4]);
+        var td_SellPositionLimit=$($("td",this)[5]);
+        var td_MinPriceRangeLimit=$($("td",this)[6]);
+
+        var td_Contract_text=td_Contract.text();
+        var td_CancelTimesLimit_text=td_CancelTimesLimit.text();
+        var td_OpenOrderLimit_text=td_OpenOrderLimit.text();
+        var td_LotSize_text=td_LotSize.text();
+        var td_BuyPositionLimit_text=td_BuyPositionLimit.text();
+        var td_SellPositionLimit_text=td_SellPositionLimit.text();
+        var td_MinPriceRangeLimit_text=td_MinPriceRangeLimit.text();
+
+        var td_Contract_rawValue=td_Contract.attr("rawValue");
+        var td_CancelTimesLimit_rawValue=td_CancelTimesLimit.attr("rawValue");
+        var td_OpenOrderLimit_rawValue=td_OpenOrderLimit.attr("rawValue");
+        var td_LotSize_rawValue=td_LotSize.attr("rawValue");
+        var td_BuyPositionLimit_rawValue=td_BuyPositionLimit.attr("rawValue");
+        var td_SellPositionLimit_rawValue=td_SellPositionLimit.attr("rawValue");
+        var td_MinPriceRangeLimit_rawValue=td_MinPriceRangeLimit.attr("rawValue");
+
+
+        $("#prc_form span[placename='Contract']").text(td_Contract_text);
+
+        $("#prc_form input[placename='CancelTimesLimit']").val(td_CancelTimesLimit_text);
+
+
+        $("#prc_form p[placename='OpenOrderLimit']").text(td_OpenOrderLimit_text);
+
+
+        $("#prc_form input[placename='LotSize']").val(td_LotSize_text);
+
+
+        $("#prc_form input[placename='BuyPositionLimit']").val(td_BuyPositionLimit_text);
+
+
+        $("#prc_form input[placename='SellPositionLimit']").val(td_SellPositionLimit_text);
+
+
+        $("#prc_form input[placename='MinPriceRangeLimit']").val(td_MinPriceRangeLimit_text);
+
+
+    });
+        $("table[name='userlist'] tbody tr").on('click',function () {
+            $('tr', this.closest('tbody')).removeClass("success");
+            $(this).addClass("success");
+            //send ajax request
+            $.ajax({
+                url:"/data/query.html",
+                async:false,
+                cache:false,
+                data:{
+                    cmd:"QUERY_USER_PRC",
+                    args:JSON.stringify({username:$.trim($("#hidden_item p[name='request_username']").text())}),
+                },
+                dataType:"json",
+                type:"GET",
+                error:function (a1,a2,a3) {
+                    alert("request {0} prc infomation failed,reason:{1},{2}".format("{{  args.username }}",a2,a3));
+                },
+                success:function (json_data,status) {
+                  //  console.log(object,json_data);
+                  ajax_data_handle(status,json_data,fill_left_page);
+                },
+                complete:function () {
+                    alert("completed");
+                }
+
+
+            });
+
+        });
+
+        function narrow_select_row(focus_row,table_row,up_or_down) {
+            if(focus_row.length==0)
+            {
+                return;
+            }
+            var tableIndex=focus_row.index();
+
+            console.log(focus_row.index());
+            if(up_or_down=="up") {
+               tableIndex=tableIndex-1;
+               console.log("up")
+            }
+            else {
+                tableIndex=tableIndex+1;
+                console.log("down")
+            }
+              if (tableIndex  > (table_row.length-1) )
+                    tableIndex = 0;
+              if(  tableIndex <0)
+                        tableIndex=table_row.length-1;
+              $(table_row[tableIndex]).click();
+            console.log(tableIndex);
+
+           // console.log($("table[name='contract_prc'] tr").is(':focus'));
+            //console.log( document.activeElement.tagName);
+        }
+
+        $(document).keydown(function (e) {
+
+        switch(e.which)
+        {
+        case 38:
+            var focused_table=$("table.xele_table_focused");
+            var success_tr=$("tr.success",focused_table);
+            if(focused_table.length!=0 && success_tr.length!=0) {
+                narrow_select_row(success_tr, $("tbody tr",focused_table), 'up')
+                e.preventDefault();
+            }
+            break;
+        case 40:
+            var focused_table=$("table.xele_table_focused");
+            var success_tr=$("tr.success",focused_table);
+            if(focused_table.length!=0 && success_tr.length!=0) {
+                narrow_select_row(success_tr, $("tbody tr",focused_table), 'down')
+                e.preventDefault();
+            }
+
+            break;
+        }
+
+    });
+
+        $(document).ready(function () {
+            /*
+         $("form input[type=checkbox]").on("change",function () {
+
+            console.log("sdf")
+         });
+         $("form").on("reset",function () {
+            console.log("reset");
+            //initializeSwitch('input[type=checkbox]');
+         });
+*/
+
+            $("#prc_form table").on("click",function () {
+                //alert("table click");
+                $(this).addClass("")
+            });
+            $('table').on('focus',function(){
+                //console.log("table focus")
+                $(this).addClass('xele_table_focused');
+            });
+            $('table').on('blur',function () {
+                $(this).removeClass('xele_table_focused');
+            })
+            $("#prc_form button[btnfunc='edit']").on("click",function(){
+                console.log("my name is edit!");
+                window.location.href="view.html?showtype=edit";
+            });
+
+             $("form input.contract-prc-input").on("focus",function () {
+                 console.log("focus");
+             });
+             $("form input.contract-prc-input").on("blur",function () {
+                 console.log("blur",$(this).val());
+
+                 var select_row=$("#prc_form table[name='contract_prc'] tr.success");
+                 if(select_row.length==0)
+                     return;
+                 var contract_name=$("#prc_form label[placename='Contract']").text();
+                 if(contract_name=="")
+                     return;
+
+                 var colindex=parseInt($(this).attr("colindex"));
+                  var input_val=$(this).val();
+
+                 if(input_val==$(this)[0].defaultValue)
+                 {
+                    $($("td",select_row)[colindex]).text($(this).val()).removeClass("xele_text_modified");
+                     return;
+                 }
+                 //modify cell and css red
+
+
+                 $($("td",select_row)[colindex]).text($(this).val()).addClass("xele_text_modified");
+
+                 var input_name=$(this).attr("placename");
+                 //add input
+                 //var new_element="<input type='hidden' name='"+contract_name+"-"+input_name+"' value='" +$(this).val() +"'/>"
+                 var new_element="<input type='hidden' name='{0}-{1}' value='{2}' />";
+
+
+                 $("#contract_inputs input[name='{0}']".format(contract_name+"-"+input_name)).remove();
+                 $("#contract_inputs").append(new_element.format(contract_name,input_name,input_val));
+
+
+
+             });
+/*
+             $("form button[type=reset]").on("click",function () {
+
+                 event.preventDefault();
+                 $(this).closest('form').get(0).reset()
+                $("form input[type=checkbox]").each(function(){
+                //console.log("reset",$(this).prop("checked"));
+                if($(this).prop("checked")==false) {
+                    $(this).val("off");
+                    $(this).closest('.switch').bootstrapSwitch('setState', false);
+                }
+                else
+                {
+                    $(this).val("on")
+                    $(this).closest('.switch').bootstrapSwitch('setState', true);
+                }
+            });
+
+         });
+*/
+
+         $('.switch').on('switch-change', function (e, data) {
+        //var $el = $(data.el), value = data.value;
+        if($("input",this).prop("checked")==false)
+        {
+           $("input",this).val("off")
+        }
+        else
+        {
+           $("input",this).val("on")
+        }
+    //console.log($("input",this).prop("checked"), value);
+                    });
+
+
+    });
+
+        $(document).ready(function () {
+
+
+        });
+
+    })
+
+    </script>
+
+{% endblock %}

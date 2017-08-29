@@ -1,0 +1,51 @@
+<div section="title">
+
+</div>
+
+<div section="body">
+
+<div name="operation">
+{% if add %}
+
+    {{ add|safe }}
+{% endif %}
+{% if delete %}
+
+    {{ delete|safe }}
+{% endif %}
+
+{% if modify %}
+
+    {{ modify|safe }}
+{% endif %}
+</div>
+<div name="display">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                username
+            </th>
+            <th>
+                password
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+            <td>
+                {{ user.username }}
+            </td>
+            <td>
+                {{ user.password }}
+            </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+</div>

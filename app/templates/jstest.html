@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function kline(a){
+        console.log(a);
+    }
+    kline.prototype={
+        initialize:function (painter) {
+
+            console.log(painter);
+        },
+
+    }
+    var a=new kline("yangjie")
+    a.initialize()
+    console.log("a");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "home-template.html" %}
+
+{% block headjs %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/vendor/bootstrap-switch/bootstrapSwitch.css">
+{% endblock %}
+{% block bodyjs_before %}
+    {{ super() }}
+
+    <script src="/static/vendor/bootstrap-switch/bootstrapSwitch.js"></script>
+{% endblock %}
+
+
+{% block tabView %}
+    {{ super() }}
+
+
+
+{% endblock %}
+
+{% block bodyjs_after %}
+{{ super() }}
+
+    <script>
+
+
+    </script>
+
+{% endblock %}

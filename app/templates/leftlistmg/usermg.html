@@ -1,0 +1,16 @@
+<li>
+    <a>usermg</a>
+    {% if usermg_create or usermg_view %}
+        <ul class="nav nav-second-level">
+
+
+            {% if usermg_view %}
+                <li>{{ usermg_view|safe }}</li>
+            {% endif %}
+            {% if usermg_create %}
+                <li>{{ usermg_create|safe }}</li>
+            {% endif %}
+        </ul>
+    {% endif %}
+</li>
+

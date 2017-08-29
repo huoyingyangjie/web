@@ -1,0 +1,567 @@
+{% extends "home-template.html" %}
+
+{% block headjs %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/vendor/bootstrap-switch/bootstrapSwitch.css">
+{% endblock %}
+{% block bodyjs_before %}
+    {{ super() }}
+
+    <script src="/static/vendor/bootstrap-switch/bootstrapSwitch.js"></script>
+{% endblock %}
+
+
+{% block tabView %}
+    {{ super() }}
+
+    <div class="row">
+        <h1 class="page-header"><span class="fa fa-user fa-fw" aria-hidden="true"></span> <label>Prc
+            Management</label><label style="margin-left:10px;margin-right:10px;">/</label><label>Speculation</label><label style="margin-left:10px;margin-right:10px;">/</label><a href="/prcmg/speculation/view.html">View</a>
+        </h1>
+        <div class="col-sm-9 " style="border-right:1px solid #f00;height:100%">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Speculation
+                    </h3>
+                </div>
+                <div class="panel-body" >
+                    <form class="form-horizontal" role="form">
+                        <div class="col-sm-6" style="padding-left:0px;border-right-style: dashed;border-right-width: 1px;border-right-color: black ">
+                        <div class=" form-group chover">
+
+                            <div class="container">
+                                <div class=" row ">
+
+
+                                    <div class="col-sm-3 col-xs-12">
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">1</i>
+                                        </button>
+                                        <label class=" control-label "
+                                               style="display: inline">CancelOrderLimitEnable</label></div>
+                                    <div class="col-sm-1 col-xs-12" style="">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="form-group chover" >
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">2</i>
+                                        </button>
+                                        <label class=" control-label ">MarginOccupyCheckEnable</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">3</i>
+                                        </button>
+                                        <label class=" control-label ">MarginPercentValue</label>
+
+
+                                    </div>
+
+                                    <div class="col-sm-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group chover">
+
+                            <div class="container">
+                                <div class=" row ">
+
+
+                                    <div class="col-lg-3 col-xs-12">
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">4</i>
+                                        </button>
+                                        <label class=" control-label "
+                                               style="display: inline">PositionCheckEnable</label></div>
+                                    <div class="col-lg-1 col-xs-12" style="">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">5</i>
+                                        </button>
+                                        <label class=" control-label ">RejectAllSell</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">6</i>
+                                        </button>
+                                        <label class=" control-label ">RejectAllBuy</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group chover">
+
+                            <div class="container">
+                                <div class=" row ">
+
+
+                                    <div class="col-lg-3 col-xs-12">
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">7</i>
+                                        </button>
+                                        <label class=" control-label "
+                                               style="display: inline">PriceTickCheckEnable</label></div>
+                                    <div class="col-lg-1 col-xs-12" style="">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">8</i>
+                                        </button>
+                                        <label class=" control-label ">PriceRangeCheckEnable</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">9</i>
+                                        </button>
+                                        <label class=" control-label ">RejectInvalidTickSizeEnable</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">10</i>
+                                        </button>
+                                        <label class=" control-label ">RejectInvalidLotSizeEnable</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+     <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">11</i>
+                                        </button>
+                                        <label class=" control-label ">QSThrottleEnable</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+     <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">12</i>
+                                        </button>
+                                        <label class=" control-label ">QSThrottleInterval</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+</div>
+                        <div class="col-sm-6" >
+                        <div class=" form-group chover">
+
+                            <div class="container">
+                                <div class=" row ">
+
+
+                                    <div class="col-lg-3 col-xs-12">
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">13</i>
+                                        </button>
+                                        <label class=" control-label "
+                                               style="display: inline">QSOrdersPerInterval</label></div>
+                                    <div class="col-lg-1 col-xs-12" style="">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="form-group chover" >
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">14</i>
+                                        </button>
+                                        <label class=" control-label ">TotalThrottleEnable</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">15</i>
+                                        </button>
+                                        <label class=" control-label ">TotalThrottleInterval</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group chover">
+
+                            <div class="container">
+                                <div class=" row ">
+
+
+                                    <div class="col-lg-3 col-xs-12">
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">16</i>
+                                        </button>
+                                        <label class=" control-label "
+                                               style="display: inline">TotalOrdersPerInterval</label></div>
+                                    <div class="col-lg-1 col-xs-12" style="">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">17</i>
+                                        </button>
+                                        <label class=" control-label ">PriceCheckEnable</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">18</i>
+                                        </button>
+                                        <label class=" control-label ">allowMktOrders</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group chover">
+
+                            <div class="container">
+                                <div class=" row ">
+
+
+                                    <div class="col-lg-3 col-xs-12">
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">19</i>
+                                        </button>
+                                        <label class=" control-label "
+                                               style="display: inline">RestrictTrading</label></div>
+                                    <div class="col-lg-1 col-xs-12" style="">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">20</i>
+                                        </button>
+                                        <label class=" control-label ">MaxQtyEnable</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">9</i>
+                                        </button>
+                                        <label class=" control-label ">RejectInvalidTickSizeEnable</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">10</i>
+                                        </button>
+                                        <label class=" control-label ">RejectInvalidLotSizeEnable</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+     <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">11</i>
+                                        </button>
+                                        <label class=" control-label ">QSThrottleEnable</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+     <div class="form-group chover">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-xs-12 ">
+
+                                        <button type="button" class="btn btn-default btn-circle"><i
+                                                class="glyphicon">12</i>
+                                        </button>
+                                        <label class=" control-label ">QSThrottleInterval</label>
+
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-xs-12">
+                                        <div class="switch" data-on="primary" data-off="info" data-animated="false">
+                                            <input type="checkbox" checked/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+</div>
+
+
+
+
+                    </form>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-sm-3 " style="height:100%">
+            show user detail
+        </div>
+    </div>
+{% endblock %}
+

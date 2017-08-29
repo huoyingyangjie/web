@@ -1,0 +1,52 @@
+<div name="title">
+
+
+</div>
+
+<div name="body">
+    <div name="investor_prc">
+
+        <div class="col-lg-4" style="height: 50px">
+            {% if  MarginOccupyCheckEnable %}
+
+                {{ MarginOccupyCheckEnable|safe }}
+            {% endif %}
+        </div>
+
+        <div class="col-lg-4" style="height: 50px">
+            {% if  MarginPercentValue %}
+
+                {{ MarginPercentValue|safe }}
+            {% endif %}
+        </div>
+        <div class="col-lg-4" style="height: 50px">
+            {% if  PositionCheckEnable %}
+
+                {{ PositionCheckEnable|safe }}
+            {% endif %}
+        </div>
+        <div class="col-lg-4" style="height: 50px">
+            {% if  RejectAllBuy %}
+
+                {{ RejectAllBuy|safe }}
+            {% endif %}
+        </div>
+        <div class="col-lg-4" style="height: 50px">
+            {% if  RejectAllSell %}
+
+                {{ RejectAllSell|safe }}
+            {% endif %}
+        </div>
+
+
+        <div class="col-lg-4" style="height: 50px">
+            {% if  PriceTickCheckEnable %}
+
+                {{ PriceTickCheckEnable|safe }}
+            {% endif %}
+        </div>
+
+    </div>
+
+
+</div>

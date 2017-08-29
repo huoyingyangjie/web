@@ -1,0 +1,15 @@
+
+
+{% if  investors%}
+    <ul class="nav nav-third-level">
+{% for investor in investors %}
+<li>
+   <a href="#">{{ investor.investor_id | safe }}</a>
+    {% if dce %}
+        {{ dce|safe }}
+    {% endif %}
+</li>
+{% endfor %}
+    </ul>
+{% endif %}
+

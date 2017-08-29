@@ -1,0 +1,40 @@
+<table class="">
+<thead>
+<tr>
+    <th>
+        Lines
+    </th>
+    <th>
+        contract_name
+    </th>
+    <th>
+        BuyPositionLimit
+    </th>
+    <th>
+        CancelTimesLimit
+    </th>
+    <th>
+        LotSize
+    </th>
+    <th>
+        MinPriceRangeLimit
+    </th>
+    <th>
+        OpenOrderLimit
+    </th>
+</tr>
+</thead>
+{% if contracts %}
+    {% for contract in contracts %}
+        <tr>
+            <td>{{ loop.index}}</td>
+            <td>{{ contract.contract_name }}</td>
+            <td>{{ contract.BuyPositionLimit }}</td>
+        <td>{{ contract.CancelTimesLimit }}</td>
+        <td>{{ contract.LotSize }}</td>
+        <td>{{ contract.MinPriceRangeLimit }}</td>
+        <td>{{ contract.OpenOrderLimit }}</td>
+        </tr>
+    {% endfor %}
+{% endif %}
+</table>

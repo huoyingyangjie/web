@@ -1,0 +1,613 @@
+
+{% extends "home-template.html" %}
+
+{%block headjs%}
+
+    {{super()}}
+<!--link rel="stylesheet" href="/static/vendor/jqueryui/jquery-ui.css" /-->
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery-ui.css" />
+ <link rel="stylesheet" href="/static/vendor/pqgrid/pqgrid.dev.css" />
+{%endblock%}
+
+
+{%block tabView%}
+{{ super() }}
+
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <h1 class="page-header "><span class="fa  fa-exchange fa-fw"></span>Transaction</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-1 col-md-4" style="width: auto">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-2x"></i>
+                                </div>
+                                <div class="col-xs-8 text-center">
+                                    <div class="xelehuge" >静态权益</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">1000000</span>
+                                <span class="pull-right"><i class="fa fa-rmb"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-1 col-md-4" style="width: auto">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-2x"></i>
+                                </div>
+                                <div class="col-xs-8 text-center">
+                                    <div class="xelehuge">平仓盈亏</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left"><i class="fa fa-minus"></i></span>
+
+                                <span class="pull-right"><i class="fa fa-rmb"></i></span>
+                                <span class="pull-right">2016</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-1 col-md-4" style="width: auto">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-2x"></i>
+                                </div>
+                                <div class="col-xs-8 text-center">
+                                    <div class="xelehuge">持仓盈亏</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left"><i class="fa fa-plus"></i></span>
+
+                                <span class="pull-right"><i class="fa fa-rmb"></i></span>
+                                <span class="pull-right">1988</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-1 col-md-4" style="width: auto">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-2x"></i>
+                                </div>
+                                <div class="col-xs-8 text-center">
+                                    <div class="xelehuge">权利金</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left"><i class="fa fa-plus"></i></span>
+
+                                <span class="pull-right"><i class="fa fa-rmb"></i></span>
+                                <span class="pull-right">0</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-1 col-md-4"style="width: auto">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-2x"></i>
+                                </div>
+                                <div class="col-xs-8 text-center">
+                                    <div class="xelehuge">动态权益</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left"><i class="fa fa-plus"></i></span>
+
+                                <span class="pull-right"><i class="fa fa-rmb"></i></span>
+                                <span class="pull-right">1988</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-1 col-md-4" style="width: auto">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-2x"></i>
+                                </div>
+                                <div class="col-xs-8 text-center">
+                                    <div class="xelehuge">占用保证金</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+
+                                <span class="pull-right"><i class="fa fa-rmb"></i></span>
+                                <span class="pull-right">1988</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-1 col-md-4" style="width: auto">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-2x"></i>
+                                </div>
+                                <div class="col-xs-8 text-center">
+                                    <div class="xelehuge">下单冻结</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left"><i class="fa fa-plus"></i></span>
+
+                                <span class="pull-right"><i class="fa fa-rmb"></i></span>
+                                <span class="pull-right">1988</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-1 col-md-4" style="width: auto">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-2x"></i>
+                                </div>
+                                <div class="col-xs-8 text-center">
+                                    <div class="xelehuge">冻结权利金</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left"><i class="fa fa-plus"></i></span>
+
+                                <span class="pull-right"><i class="fa fa-rmb"></i></span>
+                                <span class="pull-right">1988</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-1 col-md-4" style="width: auto">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-2x"></i>
+                                </div>
+                                <div class="col-xs-8 text-center">
+                                    <div class="xelehuge">可用资金</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left"><i class="fa fa-plus"></i></span>
+
+                                <span class="pull-right"><i class="fa fa-rmb"></i></span>
+                                <span class="pull-right">306021</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-1 col-md-4" style="width: auto">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-2x"></i>
+                                </div>
+                                <div class="col-xs-8 text-center">
+                                    <div class="xelehuge">风险度</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+
+                                <span class="pull-right"><i class="fa fa-rmb"></i></span>
+                                <span class="pull-right">20%</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                </div>
+
+            <div class="row">
+
+                <p>history use server search and filter</p>
+                <p>current trading day use local serach and filter</p>
+<div id="dce_futures_grid" style="margin:auto;"></div>
+            </div>
+
+            <div class="row">
+
+
+
+
+Select Row Index:&nbsp; <select class="select-row"></select>
+<br><br>
+
+<b>Row Selection Event: </b><span id="select_row_display_div"></span>
+<br><br>
+
+<div id="grid_row_selection" style="margin:auto;"></div>
+
+
+        </div>
+
+            </div>
+
+
+
+        </div>
+        <!-- /#page-wrapper -->
+
+
+{%endblock%}
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+
+
+
+  {%block bodyjs_before%}
+    {{ super() }}
+
+
+    <script src="/static/vendor/jqueryMigrate/jquery-migrate.js"></script>
+      <!--script src="/static/vendor/jqueryui/jquery-ui.js"></script-->
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+ <script type="text/javascript" src="/static/vendor/pqgrid/pqgrid.dev.js" ></script>
+
+    {%endblock%}
+
+
+
+{%block bodyjs_after%}
+    {{ super() }}
+<script>
+//$(".numberOfhands").dropdown();
+
+
+ $(function() {
+  var availableTags = [
+    "ag", "au", "cu", "ru", "C", "C++",
+    "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran",
+    "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl",
+    "PHP", "Python", "Ruby", "Scala", "Scheme"
+  ];
+
+  $("#varieties").autocomplete({
+    source: availableTags
+  });
+});
+
+    $('.btn-number').click(function(e){
+    e.preventDefault();
+
+    fieldName = $(this).attr('data-field');
+    type      = $(this).attr('data-type');
+    var input = $("input[name='"+fieldName+"']");
+    var currentVal = parseInt(input.val());
+    if (!isNaN(currentVal)) {
+        if(type == 'minus') {
+
+            if(currentVal > input.attr('min')) {
+                input.val(currentVal - 1).change();
+            }
+            if(parseInt(input.val()) == input.attr('min')) {
+                $(this).attr('disabled', true);
+            }
+
+        } else if(type == 'plus') {
+
+            if(currentVal < input.attr('max')) {
+                input.val(currentVal + 1).change();
+            }
+            if(parseInt(input.val()) == input.attr('max')) {
+                $(this).attr('disabled', true);
+            }
+
+        }
+    } else {
+        input.val(0);
+    }
+});
+$('.input-number').focusin(function(){
+   $(this).data('oldValue', $(this).val());
+});
+$('.input-number').change(function() {
+
+    minValue =  parseInt($(this).attr('min'));
+    maxValue =  parseInt($(this).attr('max'));
+    valueCurrent = parseInt($(this).val());
+
+    name = $(this).attr('name');
+    if(valueCurrent >= minValue) {
+        $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+    } else {
+        alert('Sorry, the minimum value was reached');
+        $(this).val($(this).data('oldValue'));
+    }
+    if(valueCurrent <= maxValue) {
+        $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+    } else {
+        alert('Sorry, the maximum value was reached');
+        $(this).val($(this).data('oldValue'));
+    }
+
+
+});
+$(".input-number").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+             // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+
+
+</script>
+<script>
+
+
+
+
+$(function () {
+        var noRows =1000000; //1 million.
+        var dataCache = [];
+
+        //initialize the data array.
+        for (var i = 0; i < noRows; i++) {
+            dataCache[i] = [i,0,0,0];
+        }
+       dataCache[0]=[255,2,3,4]
+       dataCache[1]=[1,3,4,5]
+       dataCache[2]=[3,4,5,6]
+        var obj = {
+            width: "100%",
+
+            showTop: true,
+            showBottom: false,
+            resizable: false,
+            editable: false,
+            virtualX: false,
+            virtualY: true,
+            scrollModel: { autoFit: true },
+            swipeModel: {on: false} ,
+            columnTemplate: {editable: false},
+            //sortable:true,
+             //numberCell: { show: false},
+            selectionModel: { type: 'row' },
+            //selectionModel: {type: null},
+            //flexHeight: true,
+            hoverMode:'row',
+                rowBorders: true,
+            title:"<p style='color:black'>Well</p>",
+             //columnBorders:true,
+           numberCell:{resizable:false, title: "<p style=''>Lines</p>",  width:40, show: false},
+              hwrap:false,
+              wrap:false,
+            colModel: [
+                { title: "Company", dataType: "string",sortable: true,dataIndx: 0} ,
+                { title: "Notes", dataType: "integer" ,sortable: true,dataIndx : 1,render:function(ui){
+                var $td = $( "#dce_futures_grid" ).pqGrid( "getCell", { rowIndx: ui.rowIndx, colIndx: ui.colIndx } );
+                console.log($td.get(0).tagName);
+                //$td.pqGrid("selection",{ type:'row', method:'getSelection' })
+                console.log($td);
+                $td.enableSelection();
+                //console.log(ui.rowData[ui.colIndx]=("<p style='background:red'>"+ui.rowData[ui.colIndx]+"</p>"));
+                }},
+                { title: "Revenues ($ millions)", dataType: "float", align: "right", sortable: true,dataIndx : 2 },
+                { title: "Profits ($ millions)", dataType: "float", align: "right" ,sortable: true,dataIndx : 3 }
+            ],
+            dataModel: {
+                data: dataCache,
+                location: "local",
+                sorting: "local",
+
+
+            },
+
+        };
+
+
+                       obj.refresh = function(evt){
+            // $(this).pqGrid('enableSelection');
+            // $('.pq-cont').enableSelection();
+             $(".pq-grid-cell").enableSelection();
+          //   $("div.pq-grid-cell",$dce_futures_grid).enableSelection();
+           // $("tr.pq-grid-row").
+
+
+           };
+
+
+       $dce_futures_grid=$("#dce_futures_grid").pqGrid(obj);
+       // $dce_futures_grid.enableSelection();
+        //$("div.pq-grid-cell",$dce_futures_grid).enableSelection();
+        $('.pq-cont').enableSelection();
+    });
+
+
+
+
+
+
+ $(function () {
+
+        var data = [
+            { rank: 1, company: 'Exxon Mobil', revenues: '339938.0', profits: '36130.0' },
+            { rank: 2, company: 'Wal-Mart Stores', revenues: '315654.0', profits: '11231.0' },
+            { rank: 3, company: 'Royal Dutch Shell', revenues: '306731.0', profits: '25311.0' },
+            { rank: 4, company: 'BP', revenues: '267600.0', profits: '22341.0' },
+            { rank: 5, company: 'General Motors', revenues: '192604.0', profits: '-10567.0' },
+            { rank: 6, company: 'Chevron', revenues: '189481.0', profits: '14099.0' },
+            { rank: 7, company: 'DaimlerChrysler', revenues: '186106.3', profits: '3536.3' },
+            { rank: 8, company: 'Toyota Motor', revenues: '185805.0', profits: '12119.6' },
+            { rank: 9, company: 'Ford Motor', revenues: '177210.0', profits: '2024.0' },
+            { rank: 10, company: 'ConocoPhillips', revenues: '166683.0', profits: '13529.0' },
+            { rank: 11, company: 'General Electric', revenues: '157153.0', profits: '16353.0' },
+            { rank: 12, company: 'Total', revenues: '152360.7', profits: '15250.0' },
+            { rank: 13, company: 'ING Group', revenues: '138235.3', profits: '8958.9' },
+            { rank: 14, company: 'Citigroup', revenues: '131045.0', profits: '24589.0' },
+            { rank: 15, company: 'AXA', revenues: '129839.2', profits: '5186.5' },
+            { rank: 16, company: 'Allianz', revenues: '121406.0', profits: '5442.4' },
+            { rank: 17, company: 'Volkswagen', revenues: '118376.6', profits: '1391.7' },
+            { rank: 18, company: 'Fortis', revenues: '112351.4', profits: '4896.3' },
+            { rank: 19, company: 'Cr¨¦dit Agricole', revenues: '110764.6', profits: '7434.3' },
+            { rank: 20, company: 'American Intl. Group', revenues: '108905.0', profits: '10477.0' }
+        ];
+        var obj = {
+            width: 500,
+            height: 350,
+            //showTop: false,
+            showBottom: false,
+            resizable: true,
+
+            editable: false,
+			swipeModel: {on: false} ,
+            virtualX: false,
+            hoverMode:'row',
+               virtualY: true,
+               columnTemplate: {editable: false},
+            scrollModel: { autoFit: true },
+            numberCell: { show: true},
+            selectionModel: { type: 'row',mode:"single"  },
+            // numberCell:{resizable:false, title: "<p style=''>Lines</p>",  width:40},
+            //flexHeight: true
+
+        };
+        obj.colModel = [
+            { title: "Rank", width: 100, dataType: "integer", dataIndx: "rank" },
+            { title: "Company", width: 200, dataType: "string", dataIndx: "company" },
+            { title: "Revenues ($ millions)", width: 150, dataType: "float", align: "right", dataIndx: "revenues" },
+            { title: "Profits ($ millions)", width: 150, dataType: "float", align: "right", dataIndx: "profits" }
+        ];
+        obj.dataModel = { data: data,
+          location: "local",
+                sorting: "local",
+         };
+
+        //rowSelect callback.
+        obj.rowSelect = function (evt, ui) {
+            console.log(evt);
+            if (ui.rowData) {
+                var rowIndx = parseInt(ui.rowIndx);
+                $("#select_row_display_div").html("rowIndx: " + rowIndx);
+            }
+        }
+        //fill the drop down upon creation of pqGrid.
+        obj.create = function (evt, ui) {
+            var $select_row = $(".select-row");
+            $select_row.empty();
+            var data = ui.dataModel.data;
+            for (var i = 0; i < data.length; i++) {
+                $select_row.append("<option>" + i + "</option>");
+            }
+            $select_row.bind("change", function (evt) {
+                var rowIndx = $(this).val();
+                $("#grid_row_selection").pqGrid("setSelection", null);
+                $("#grid_row_selection").pqGrid("setSelection", { rowIndx: rowIndx });
+            }).change();
+        }
+        var $grid = $("#grid_row_selection").pqGrid(obj);
+         $('.pq-cont').enableSelection();
+    });
+
+
+$(document).ready(function(){
+
+
+
+
+  $(document).on("keydown",("tr.pq-grid-row"),(function(event){
+
+  console.log("xxx");
+  if($(this).get(0).tagName=="TR" && event.which==38 )
+  {
+  var $row=$("#dce_futures_grid").pqGrid("selection",{ type:'row', method:'getSelection' });
+  if($row.length==0)
+  return;
+  var rowIndex=$row[0].rowIndx;
+  console.log(rowIndex)
+ // console.log($(this).get(0).tagName,event.which)
+  }
+
+
+  }));
+});
+</script>
+
+
+  {%endblock%}
+
+
+
+</body>
+
+</html>
